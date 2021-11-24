@@ -1,13 +1,20 @@
-﻿using System.Collections.Generic;
+/*
+ * Script by Kolton Meier
+ * This will search the hierarchy of an imported model,
+ * converting meshes with the colliderTag to a meshCollider.
+ * Place this in an Editor folder.
+ */
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
 
 public class MeshImport_ColliderHandler : AssetPostprocessor
 {
-    private const bool tryDissolve = true;
+    private const bool tryDissolve = true; // Set this to false if you'd rather keep the hierarchy intact
     private const string colliderTag = "col_";
-    private const bool isPrefix = true;
+    private const bool isPrefix = true; // Is the colliderTag a prefix or suffix
 
     void OnPostprocessModel(GameObject g)
     {
